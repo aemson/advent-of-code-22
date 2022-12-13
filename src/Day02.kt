@@ -3,7 +3,7 @@ import GameChoices.PAPER
 import GameChoices.SCISSORS
 
 fun main() {
-    val inputData = readInput("Day02_input")
+    val inputData = readInput("Day02_input_sample")
     val rock =
         GameOption(
             choice = ROCK,
@@ -24,6 +24,14 @@ fun main() {
     val gameRules = listOf(rock, paper, scissors)
 
     val pointsMap = mapOf("win" to 6, "lost" to 0, "draw" to 3)
+    partOneGamePoints(inputData, gameRules, pointsMap)
+}
+
+private fun partOneGamePoints(
+    inputData: List<String>,
+    gameRules: List<GameOption>,
+    pointsMap: Map<String, Int>
+) {
     val gamePoints = inputData.map { game ->
         val playerChoices = game.split(" ")
         val firstPlayerChoice = playerChoices[0].single()
