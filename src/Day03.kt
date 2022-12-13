@@ -8,6 +8,15 @@ fun main() {
 
     }
     println("Rucksack Reorganization (Part 1) -> ${commonItems.map { it.priority() }.sumOf { it }}")
+
+    val organizeGroups = inputData.chunked(3)
+    val commonBadge = organizeGroups.map { groups ->
+        val firstSack = groups[0].toCharArray().toSet()
+        val secondSack = groups[1].toCharArray().toSet()
+        val thirdSack = groups[2].toCharArray().toSet()
+        firstSack.intersect(secondSack).intersect(thirdSack).first()
+    }
+    println("Rucksack Reorganization (Part 2) -> ${commonBadge.map { it.priority() }.sumOf { it }}")
 }
 
 private fun Char.priority(): Int =
