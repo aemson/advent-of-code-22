@@ -1,5 +1,4 @@
 fun main() {
-    // val inputData = readInput("Day01_input")
     val inputData = readInput("Day01_input")
     val elfCalories =
         inputData
