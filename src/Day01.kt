@@ -1,17 +1,10 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
-    }
-
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+    // val inputData = readInput("Day01_input")
+    val inputData = readInput("Day01_input")
+    val elfCalories =
+        inputData
+            .split { it.isBlank() }
+            .map { strings -> (strings.sumOf { it.toInt() }) }
+    println("Part One (Most calories)-> ${elfCalories.maxOf { it }}")
+    println("Part Two (Last 3 calories)-> ${elfCalories.sorted().takeLast(3).sum()}")
 }

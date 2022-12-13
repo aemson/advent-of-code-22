@@ -19,3 +19,15 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+/**
+ * Splits list based on the predicate
+ * */
+fun <T> List<T>.split(predicate: (T) -> Boolean): List<List<T>> =
+    this.indexOfFirst(predicate).let { idx ->
+        return if (idx == -1) {
+            listOf(this)
+        } else {
+            return listOf(this.take(idx)) + this.drop(idx + 1).split(predicate)
+        }
+    }
